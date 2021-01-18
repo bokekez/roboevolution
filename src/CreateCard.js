@@ -8,23 +8,24 @@ const CreateCard = ({generateCard, props, name, website, email, setName}) => {
         console.log(event)
         console.log(event.target.name)
         // event => setName(event.target.value);
+        setName(event.target.value)
     }
     return(
 	<div className='measure items-center mb2'>
-        <form className='pa4 input-reset'>
-            <label>
+        <form className='measure pa4 input-reset'>
+            <label classname= 'measure'> 
                 Name:
-            <input className='ba' type="text" placeholder='New name here' onChange={event => setName(event.target.value)} />
-            </label>
-            <label>
+            <input className='ba measure' type="text" placeholder='New name here' onSubmit={handleInput} />
+            </label >
+            <label classname= 'measure'>
                 Email:
-            <input className='ba' type="text" placeholder='New email here' />
+            <input className='ba measure' type="text" placeholder='New email here' />
             </label>
-            <label>
+            <label classname= 'measure'>
                 Website:
-            <input className='ba' type="text" placeholder='New website here' />
+            <input className='ba measure' type="text" placeholder='New website here' />
             </label>
-            <button>Submit</button>
+            <input onClick={handleInput} type="submit" value="Submit"/>
         </form>
 	</div>
     )
