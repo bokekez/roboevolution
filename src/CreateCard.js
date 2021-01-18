@@ -5,10 +5,11 @@ const CreateCard = ({generateCard, props, name, website, email, setName}) => {
     //      event.preventDefault();
     // }
     const handleInput = (event) => {
+        
+        // event => setName(event.target.value);
+        setName = (event.target.value);
         console.log(event)
         console.log(event.target.name)
-        // event => setName(event.target.value);
-        setName(event.target.value)
     }
     return(
 	<div className='measure items-center mb2'>
