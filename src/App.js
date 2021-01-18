@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme, grayTheme } from './theme';
 import { GlobalStyles } from './global';
 import Toggle from './toggle.js'
+import CreateCard from './CreateCard';
 
 
 // const state ={
@@ -18,9 +19,19 @@ import Toggle from './toggle.js'
 
 function App (){
 
-document.title = "Robohooks"
+document.title = "Roboevolution"
 
 //
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [website, setWebsite] = useState('');
+const generateCard = {
+	id: '',
+	name: '',
+	email: '',
+	website: ''
+}
+
 
 const [theme, setTheme] = useState('light');
 const [state, setState] = useState('initial')
@@ -116,11 +127,11 @@ else if (state === 'loaded') {
 					<ErrorBoundry>
 						<CardList theme={theme} robots={filterRobotsName}/>
 					</ErrorBoundry>
-
+				<CreateCard name={name} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
-	    	</ThemeProvider>
+	    	</ThemeProvider >
 		);
 	}
 	}
