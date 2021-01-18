@@ -22,6 +22,7 @@ function App (){
 document.title = "Roboevolution"
 
 //
+const [route, setRoute] = useState('home')
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
@@ -51,6 +52,42 @@ const toggleTheme = () => {
   	setTheme('light');
   }
 }
+const routeChangeSearch = () => {
+	console.log(route.value);
+	if ( route !== 'search')
+	{
+		setRoute('search');
+	}
+}
+const routeChangeCreate = () => {
+	console.log(route.value);
+	if ( route !== 'create')
+	{
+		setRoute('create');
+	}
+}
+
+const routeChangeHome = () => {
+	console.log(route.value);
+	if ( route !== 'home'){
+		setRoute('home');
+	}
+}
+let colorVar;
+	switch(theme)
+	{
+		case 'light':
+			colorVar='bg-light-green';
+			break;
+		case 'dark':
+			colorVar='bg-light-blue';
+			break;
+		case 'gray':
+			colorVar='bg-lightest-gray';
+			break;
+		default:
+			colorVar='bg-lightest-blue';
+	}
 
 useEffect(() => { if (setState !== 'loaded') {	
 		fetch('https://jsonplaceholder.typicode.com/users')
@@ -81,7 +118,45 @@ const filterRobotsName = robots.filter(robot => {
 				return '';
 		}
 })
-
+if (route === 'home')
+{
+	return (
+		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
+ 		<GlobalStyles /> 
+        <div className='tc #0ccac4 top:1rem '>
+        	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+			<input className={` br4 flex b--white ${colorVar}`} onClick={routeChangeSearch} type="submit" value="Search robots"/>
+			<input className={` br4 flex b--white ${colorVar}`} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+	 		<h1 className='f1'>RoboFriends</h1>
+			{/* <input onClick={() => route !=='search' ? routeChange : setRoute === 'search' && console.log('was clicked')} type="submit" value="Search robots"/>
+			<input onClick={() => route !=='create' ? routeChange : setRoute === 'create'}  type="submit" value="Create robots"/> */}
+			
+		</div>
+        <footer>
+        </footer>
+    	</ThemeProvider>
+	)
+}
+if (route === 'create')
+	{
+		return (	
+			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
+			<GlobalStyles />
+			<div className='tc top:1rem'>	
+				<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeSearch} type="submit" value="Create robots"/>
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeHome} type="submit" value="Home"/>
+				<h1 className='f1'>RoboFriends</h1>
+				<CreateCard name={name} email={email} website={website}/>
+			</div>
+			 <footer>
+	        </footer>
+	    	</ThemeProvider >
+			
+		)
+	}
+if ( route === 'search')
+{
 if (state === 'initial')
  	{ 
  		return (
@@ -89,9 +164,12 @@ if (state === 'initial')
  		<GlobalStyles /> 
         <div className='tc #0ccac4 top:1rem'>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+			<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+			<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeHome} type="submit" value="Home"/>
 	 		<h1 className='f1'>RoboFriends</h1>
 			<SearchBox theme={theme} searchChange={onSearchChange}/>
 			<h1 className='tc'>Loading</h1> 
+			
 		</div>
         <footer>
         </footer>
@@ -106,6 +184,8 @@ else if (state === 'loaded') {
 			<GlobalStyles />
 			<div className='tc #0ccac4 top:1rem'>	
 				<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`}onClick={routeChangeCreate} type="submit" value="Create robots"/>
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeHome} type="submit" value="Home"/>
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox theme={theme} searchChange={onSearchChange}/>
 				<p class='p1'>Search found no robots</p>
@@ -120,14 +200,17 @@ else if (state === 'loaded') {
 			
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
-			<div className='tc top:1rem'>	
+			<div className='tc top:1rem '>	
 				<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+				<div className=''>
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeHome} type="submit" value="Home"/>
+				</div>
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox theme={theme} searchChange={onSearchChange}/>
 					<ErrorBoundry>
 						<CardList theme={theme} robots={filterRobotsName}/>
 					</ErrorBoundry>
-				<CreateCard name={name} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
@@ -135,7 +218,7 @@ else if (state === 'loaded') {
 		);
 	}
 	}
-	
-}
 
+}
+}
 export default App;
