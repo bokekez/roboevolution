@@ -125,12 +125,12 @@ if (route === 'home')
  		<GlobalStyles /> 
         <div className='tc #0ccac4 top:1rem '>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
-			<input className={` br4 flex b--white ${colorVar}`} onClick={routeChangeSearch} type="submit" value="Search robots"/>
-			<input className={` br4 flex b--white ${colorVar}`} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+			
 	 		<h1 className='f1'>RoboFriends</h1>
 			{/* <input onClick={() => route !=='search' ? routeChange : setRoute === 'search' && console.log('was clicked')} type="submit" value="Search robots"/>
 			<input onClick={() => route !=='create' ? routeChange : setRoute === 'create'}  type="submit" value="Create robots"/> */}
-			
+			<input className={` br4  b--white ${colorVar}`} onClick={routeChangeSearch} type="submit" value="Search robots"/>
+			<input className={` br4  b--white ${colorVar}`} onClick={routeChangeCreate} type="submit" value="Create robots"/>
 		</div>
         <footer>
         </footer>
