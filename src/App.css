@@ -18,3 +18,7 @@ h1 {
 /*	color: #0ccac4;*/
 	padding-top: 1em;
 }
+
+.bg-light-green {
+	background-color: linear-gradient(#39598A, #79D7ED);
+}

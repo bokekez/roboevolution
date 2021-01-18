@@ -6,7 +6,7 @@ const CardList = ({ robots, theme }) =>{
 		return <Card theme={theme} key={i} id={robots[i].id} name={robots[i].name} email={robots[i].email} website={robots[i].website}/>
 	})
 	return(
-	<div theme={theme} >
+	<div >
 		{cardComponent}
     </div>
 
