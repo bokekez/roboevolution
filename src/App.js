@@ -151,10 +151,10 @@ if (route === 'create')
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				{/* <input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeSearch} type="submit" value="Search robots"/>
 				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '10.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeHome} type="submit" value="Home"/> */}
+				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>

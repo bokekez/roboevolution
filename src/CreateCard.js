@@ -10,20 +10,20 @@ const CreateCard = ({generateCard, props, name, website, email, setName, setEmai
         console.log(newCard);
     }
     return(
-	<div className= 'flex flex-column items-center mb2'>
-        <form className='flex flex-column items-center pa4'>
+	<div >
+        <form className='flex flex-column items-center pa4' style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <label classname= 'tc'> 
-                Name:
-            <input className='pa3 outline tc' type="text" placeholder='New name here' onChange={e => setName(e.target.value)}/> {console.log(setName.value)}
-            </label >
+                Name:</label >
+            <input className='pa4-m outline tc' style={{width: '300'}}type="text" placeholder='New name here' onChange={e => setName(e.target.value)}/> {console.log(setName)}
+            
             <label classname= ''>
-                Email:
-            <input className='pa3 outline tc' type="text" placeholder='New email here' onChange={e => setEmail(e.target.value)}/> {console.log(setName.value)}
-            </label>
+                Email:</label>
+            <input className='pa4-m outline tc' style={{width: '300'}} type="text" placeholder='New email here' onChange={e => setEmail(e.target.value)}/> {console.log(setName)}
+            
             <label classname= ''>
-                Website:
-            <input className='pa3 outline tc' type="text" placeholder='New website here'onChange={e => setWebsite(e.target.value)}/> {console.log(setName.value)} 
-            </label>
+                Website:</label>
+            <input className='pa4-m outline tc' style={{width: '300'}} type="text" placeholder='New website here'onChange={e => setWebsite(e.target.value)}/> {console.log(setName)} 
+            
             <button onClick={submitValue}>Submit</button>
         </form>
 	</div>
