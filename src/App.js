@@ -145,13 +145,13 @@ if (route === 'create')
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
 			<div className='tc'>	
-				<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
-				{/* <input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeSearch} type="submit" value="Search robots"/>
-				<input className={` br3 flex flex-inline flex-column b--white ${colorVar}`} onClick={routeChangeHome} type="submit" value="Home"/> */}
-				<input className={`${colorVar}`} style={{display: 'flex', justifyContent: 'flex-left', cursor: 'pointer', borderRadius: '12px', background: `${colorVar}`}}
-				onClick={routeChangeSearch} type="submit" value="Search robots"/>
-				<input className={`${colorVar}`} style={{display: 'flex', justifyContent: 'flex-left', cursor: 'pointer', borderRadius: '12px', background: `${colorVar}`}} 
-				onClick={routeChangeHome} type="submit" value="Home"/>
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeSearch} type="submit" value="Search robots"/>
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '7.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeHome} type="submit" value="Home"/>
+				</div>
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard name={name} email={email} website={website}/>
 			</div>
@@ -169,11 +169,13 @@ if (state === 'initial')
  		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
  		<GlobalStyles /> 
         <div className='tc'>
-        	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
-			<input className={`${colorVar}`} style={{display: 'flex', justifyContent: 'flex-left', cursor: 'pointer', borderRadius: '12px', background: `${colorVar}`}}
-			 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-			<input className={`${colorVar}`} style={{display: 'flex', justifyContent: 'flex-left', cursor: 'pointer', borderRadius: '12px', background: `${colorVar}`}} 
-			 onClick={routeChangeHome} type="submit" value="Home"/>
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '7.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeHome} type="submit" value="Home"/>
+				</div>
 	 		<h1 className='f1'>RoboFriends</h1>
 			{/* <SearchBox theme={theme} searchChange={onSearchChange}/> */}
 			<h1 className='tc'>Loading</h1> 
@@ -191,11 +193,11 @@ else if (state === 'loaded') {
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
 			<div className='tc'>	
-				<div style={{display: 'flex', flexWrap: 'wrap'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '7.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
@@ -212,11 +214,11 @@ else if (state === 'loaded') {
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
 			<div className='tc'>	
-				<div style={{display: 'flex', flexWrap: 'wrap'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '7.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>

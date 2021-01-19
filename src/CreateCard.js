@@ -11,22 +11,27 @@ const CreateCard = ({generateCard, props, name, website, email, setName}) => {
         console.log(event)
         console.log(event.target.name)
     }
+    const handleSubmit = (event) => {
+        setName(event.target.value);
+        console.log(event)
+        console.log(event.target.name)
+    }
     return(
 	<div className= 'flex flex-column items-center mb2'>
         <form className='flex flex-column column-gap items-center pa4 input-reset'>
             <label classname= 'tc'> 
                 Name:
-            <input className='pa3 outline tc' type="text" placeholder='New name here' onSubmit={handleInput} />
+            <input className='pa3 outline tc' type="text" placeholder='New name here' onChange={handleInput} onSubmit={handleSubmit}/>
             </label >
             <label classname= ''>
                 Email:
-            <input className='pa3 outline tc' type="text" placeholder='New email here' />
+            <input className='pa3 outline tc' type="text" placeholder='New email here' onChange={handleInput} onSubmit={handleSubmit}/>
             </label>
             <label classname= ''>
                 Website:
-            <input className='pa3 outline tc' type="text" placeholder='New website here' />
+            <input className='pa3 outline tc' type="text" placeholder='New website here' onChange={handleInput} onSubmit={handleSubmit}/>
             </label>
-            <input onClick={handleInput} type="submit" value="Submit"/>
+            {/* <input onClick={handleInput} type="submit" value="Submit"/> */}
         </form>
 	</div>
     )
