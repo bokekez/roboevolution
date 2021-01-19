@@ -19,6 +19,14 @@ h1 {
 	padding-top: 1em;
 }
 
+input[type="submit"] {
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	display: inline-block;
+	border: white;
+}
 .bg-light-green {
 	background-color: linear-gradient(#39598A, #79D7ED);
 }
