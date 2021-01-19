@@ -131,7 +131,6 @@ if (route === 'home')
  		<GlobalStyles /> 
         <div className=' tc'>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
-			
 	 		<h1 className='f1'>RoboFriends</h1>
 			{/* <input onClick={() => route !=='search' ? routeChange : setRoute === 'search' && console.log('was clicked')} type="submit" value="Search robots"/>
 			<input onClick={() => route !=='create' ? routeChange : setRoute === 'create'}  type="submit" value="Create robots"/> */}
@@ -157,7 +156,7 @@ if (route === 'create')
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
