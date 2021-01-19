@@ -150,9 +150,9 @@ if (route === 'create')
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeSearch} type="submit" value="Search robots"/>
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '10.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				 onClick={routeChangeSearch} type="submit" value="Search"/>
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
@@ -174,9 +174,9 @@ if (state === 'initial')
         <div className='tc'>
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', height: '1rem', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '10.5rem', height: '1rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', height: '1rem', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', height: '1rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 	 		<h1 className='f1'>RoboFriends</h1>
@@ -198,9 +198,9 @@ else if (state === 'loaded') {
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '10.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				<input className={`${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
@@ -219,9 +219,9 @@ else if (state === 'loaded') {
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={` ${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', textAlign: 'center' , cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeCreate} type="submit" value="Create robots"/>
-				<input className={` ${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute',textAlign: 'center',left: '10.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={` ${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', textAlign: 'center' , cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				<input className={` ${colorVar} ${colorVarText}`} style={{display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute',textAlign: 'center',left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
