@@ -1,37 +1,30 @@
 import React from 'react';
 
-const CreateCard = ({generateCard, props, name, website, email, setName}) => {
-    // const handleSubmit = (event) => {
-    //      event.preventDefault();
-    // }
-    const handleInput = (event) => {
-        
-        // event => setName(event.target.value);
-        setName(event.target.value);
-        console.log(event)
-        console.log(event.target.name)
-    }
-    const handleSubmit = (event) => {
-        setName(event.target.value);
-        console.log(event)
-        console.log(event.target.name)
+const CreateCard = ({generateCard, props, name, website, email, setName, setEmail, setWebsite}) => {
+    const submitValue = () => {
+        const newCard = {
+            'newName': name,
+            'newEmail': email,
+            'newWebsite': website
+        }
+        console.log(newCard);
     }
     return(
 	<div className= 'flex flex-column items-center mb2'>
-        <form className='flex flex-column column-gap items-center pa4 input-reset'>
+        <form className='flex flex-column items-center pa4'>
             <label classname= 'tc'> 
                 Name:
-            <input className='pa3 outline tc' type="text" placeholder='New name here' onChange={handleInput} onSubmit={handleSubmit}/>
+            <input className='pa3 outline tc' type="text" placeholder='New name here' onChange={e => setName(e.target.value)}/> {console.log(setName.value)}
             </label >
             <label classname= ''>
                 Email:
-            <input className='pa3 outline tc' type="text" placeholder='New email here' onChange={handleInput} onSubmit={handleSubmit}/>
+            <input className='pa3 outline tc' type="text" placeholder='New email here' onChange={e => setEmail(e.target.value)}/> {console.log(setName.value)}
             </label>
             <label classname= ''>
                 Website:
-            <input className='pa3 outline tc' type="text" placeholder='New website here' onChange={handleInput} onSubmit={handleSubmit}/>
+            <input className='pa3 outline tc' type="text" placeholder='New website here'onChange={e => setWebsite(e.target.value)}/> {console.log(setName.value)} 
             </label>
-            {/* <input onClick={handleInput} type="submit" value="Submit"/> */}
+            <button onClick={submitValue}>Submit</button>
         </form>
 	</div>
     )

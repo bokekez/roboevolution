@@ -26,12 +26,12 @@ const [route, setRoute] = useState('home');
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
-const generateCard = {
-	id: '',
-	name: '',
-	email: '',
-	website: ''
-}
+// const generateCard = {
+// 	id: '',
+// 	name: '',
+// 	email: '',
+// 	website: ''
+// }
 
 
 const [theme, setTheme] = useState('light');
@@ -81,11 +81,11 @@ let colorVarText;
 		case 'light':
 			// colorVar='bg-light-green';
 			colorVar= 'bg-light-green';
-			colorVarText= 'green';
+			colorVarText= 'dark-green';
 			break;
 		case 'dark':
 			colorVar= 'bg-light-blue';
-			colorVarText= 'dark-blue';
+			colorVarText= 'darkest-blue';
 			break;
 		case 'gray':
 			colorVar= 'bg-light-gray';
@@ -151,13 +151,13 @@ if (route === 'create')
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				{/* <input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeSearch} type="submit" value="Search robots"/>
 				<input className={`${colorVar} ${colorVarText}`} style={{alignSelf: 'flex-start', position: 'absolute', left: '10.5rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeHome} type="submit" value="Home"/>
+				 onClick={routeChangeHome} type="submit" value="Home"/> */}
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard name={name} email={email} website={website}/>
+				<CreateCard name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
