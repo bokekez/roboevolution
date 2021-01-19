@@ -116,9 +116,9 @@ const filterRobotsName = robots.filter(robot => {
 			{
 				return robot.website;
 			}	
-	else{
-				return '';
-		}
+	// else{
+	// 			return '';
+	// 	}
 })
 if (route === 'home')
 {
@@ -175,7 +175,7 @@ if (state === 'initial')
 			<input className={`${colorVar}`} style={{display: 'flex', justifyContent: 'flex-left', cursor: 'pointer', borderRadius: '12px', background: `${colorVar}`}} 
 			 onClick={routeChangeHome} type="submit" value="Home"/>
 	 		<h1 className='f1'>RoboFriends</h1>
-			<SearchBox theme={theme} searchChange={onSearchChange}/>
+			{/* <SearchBox theme={theme} searchChange={onSearchChange}/> */}
 			<h1 className='tc'>Loading</h1> 
 			
 		</div>
@@ -205,7 +205,7 @@ else if (state === 'loaded') {
 
 	    	</ThemeProvider>
 			)
-}else if (filterRobotsName != '') {		
+}else  {		
 		return(		
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
