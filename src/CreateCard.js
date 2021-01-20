@@ -10,7 +10,9 @@ const CreateCard = ({newCard, props, name, website, email, setName, setEmail, se
         newCard.newEmail = email;
         newCard.newWebsite = website;
         console.log(newCard);
-        setRobots(newCard => [...robots, newCard]);
+        //setRobots(newCard => [...robots, newCard]);
+        //Object.assign(robots, ...newCard)
+        setRobots([...robots, newCard]);
         console.log(robots);
     }
     return(

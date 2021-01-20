@@ -5,10 +5,21 @@ const CardList = ({ robots, theme, newCard, setRobots }) =>{
 	//setRobots.push(newCard);
 	
 	// setRobots(newCard => [...newCard, newElement]);
-	
-	const cardComponent = robots.map((robot, i) => {
-		return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
+
+	const cardComponent = robots.map((users, i) => {
+		//return <Card theme={theme} key={i} id={robots[i].id} newName={robots[i].newName} newEmail={robots[i].newEmail} newWebsite={robots[i].newWebsite}/> 
+		 return <Card theme={theme} key={i} id={robots[i].id} newName={robots[i].newName} newEmail={robots[i].newEmail} newWebsite={robots[i].newWebsite}/> 
+		// return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
 	})
+	console.log(robots);
+
+	// const cardComponent = newCard.map((users, i) => {
+	// 	//return <Card theme={theme} key={i} id={robots[i].id} newName={robots[i].newName} newEmail={robots[i].newEmail} newWebsite={robots[i].newWebsite}/> 
+	// 	 return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
+	// 	// return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
+	// })  <- radi ali vraća samo zadnju karticu
+ 
+
 	return(
 	<div >
 		{cardComponent}
