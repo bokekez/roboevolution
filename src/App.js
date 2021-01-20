@@ -27,13 +27,14 @@ const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
 const [id1, setId1] = useState(0);
+const [newCard, setNewCard] = useState({id: 0, newName: 'name', newEmail: 'email', newWebsite: 'website'})
 
-const newCard = {
-	id: 0,
-	newName: 'name',
-	newEmail: 'email',
-	newWebsite: 'website'
-}
+// const newCard = {
+// 	id: 0,
+// 	newName: 'name',
+// 	newEmail: 'email',
+// 	newWebsite: 'website'
+// }
 
 
 const [theme, setTheme] = useState('light');
@@ -104,7 +105,7 @@ let colorVarText;
 // 	 	.then(setState('loaded'))
 // 	}}, []) // <-- didMount da se ne ucitava stalno
 
-useEffect(setRobots(), [])
+// useEffect(robots => {setRobots(robots)}, [])
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
@@ -193,28 +194,29 @@ if (state === 'initial')
 		)
  	}
 else if (state === 'loaded') {
-	if (filterRobotsName == '')
-	{
-		return(
-			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
-			<GlobalStyles />
-			<div className='tc'>	
-				<div style={{display: 'flex', flexDirection: 'row'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeCreate} type="submit" value="Create"/>
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-				 onClick={routeChangeHome} type="submit" value="Home"/>
-				</div>
-				<h1 className='f1'>RoboFriends</h1>
-				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
-				<p class='p1'>Search found no robots</p>
-			</div>
-	        <footer>
-	        </footer>
-	    	</ThemeProvider>
-			)
-}else  {		
+	// if (filterRobotsName == '')
+	// {
+	// 	return(
+	// 		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
+	// 		<GlobalStyles />
+	// 		<div className='tc'>	
+	// 			<div style={{display: 'flex', flexDirection: 'row'}}>
+	// 			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+	// 			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+	// 			 onClick={routeChangeCreate} type="submit" value="Create"/>
+	// 			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+	// 			 onClick={routeChangeHome} type="submit" value="Home"/>
+	// 			</div>
+	// 			<h1 className='f1'>RoboFriends</h1>
+	// 			<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
+	// 			<p class='p1'>Search found no robots</p>
+	// 		</div>
+	//         <footer>
+	//         </footer>
+	//     	</ThemeProvider>
+	// 		)
+ // }else  
+{		
 		return(		
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
@@ -229,7 +231,7 @@ else if (state === 'loaded') {
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
-						<CardList theme={theme} robots={filterRobotsName}/>
+					<CardList theme={theme} newCard={[newCard]} robots={filterRobotsName}/>
 					</ErrorBoundry>
 			</div>
 			 <footer>

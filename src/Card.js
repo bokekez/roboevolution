@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const Card = (props, theme, newCard, newName, newEmail, newWebsite, id) =>{
-	
+const Card = (props, theme, newCard,) =>{
+	const {newName, newEmail, newWebsite, id } = props
+	console.log(newName);
 	if (props.theme === 'light')
 	{
 	return (
@@ -11,6 +12,7 @@ const Card = (props, theme, newCard, newName, newEmail, newWebsite, id) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
+				{console.log(newName)}
 			</div>
 		</div>
 	)
