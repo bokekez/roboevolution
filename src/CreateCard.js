@@ -1,18 +1,18 @@
 import React from 'react';
 
-const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar}) => {
-    let id1 = 0;
+const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1}) => {
     const submitValue = (e) => {
         e.preventDefault()
+        let id2 = id1 + 1;
 
-        id1 = id1 + 1;
-        const createNewCard = {
-            id: id1,
-            newName: name,
-            newEmail: email,
-            newWebsite: website
-        }
-        console.log(createNewCard);
+        setId1(id1 + 1);
+
+        newCard.id = id2;
+        newCard.newName = name;
+        newCard.newEmail = email;
+        newCard.newWebsite = website;
+        
+        console.log(newCard);
     }
     return(
 	<div >

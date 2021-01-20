@@ -26,6 +26,7 @@ const [route, setRoute] = useState('home');
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
+const [id1, setId1] = useState(0);
 
 const newCard = {
 	id: 0,
@@ -158,7 +159,7 @@ if (route === 'create')
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
