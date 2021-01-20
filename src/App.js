@@ -109,7 +109,7 @@ let colorVarText;
 
 // useEffect(() => {function handler (newCard) { setRobots(newCard)}}, [])
 
-useEffect(users => setRobots(users), []);
+// useEffect(users => setRobots(users), []);
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
