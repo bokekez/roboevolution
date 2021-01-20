@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 
 const CardList = ({ robots, theme, newCard }) =>{
-	const cardComponent = newCard.map((user, i) => {
+	const cardComponent = newCard.map((users, i) => {
 		return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
 	})
 	return(

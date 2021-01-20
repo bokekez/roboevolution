@@ -42,6 +42,8 @@ const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
 const [searchfield, setSearchfield] = useState('');
 
+
+
 const toggleTheme = () => {
 	console.log(theme);
 	if (theme === 'light') {
@@ -105,7 +107,9 @@ let colorVarText;
 // 	 	.then(setState('loaded'))
 // 	}}, []) // <-- didMount da se ne ucitava stalno
 
-// useEffect(robots => {setRobots(robots)}, [])
+// useEffect(() => {function handler (newCard) { setRobots(newCard)}}, [])
+
+useEffect(users => setRobots(users), []);
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
