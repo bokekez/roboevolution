@@ -26,16 +26,17 @@ const [route, setRoute] = useState('home');
 const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
-// const generateCard = {
-// 	id: '',
-// 	name: '',
-// 	email: '',
-// 	website: ''
-// }
+
+const newCard = {
+	id: 0,
+	newName: 'name',
+	newEmail: 'email',
+	newWebsite: 'website'
+}
 
 
 const [theme, setTheme] = useState('light');
-const [state, setState] = useState('initial')
+const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
 const [searchfield, setSearchfield] = useState('');
 
@@ -95,12 +96,14 @@ let colorVarText;
 			colorVar='gray';
 	}
 
-useEffect(() => { if (setState !== 'loaded') {	
-		fetch('https://jsonplaceholder.typicode.com/users')
-		.then(response => response.json())
-	 	.then(users => {setRobots(users)})
-	 	.then(setState('loaded'))
-	}}, []) // <-- didMount da se ne ucitava stalno
+// useEffect(() => { if (setState !== 'loaded') {	
+// 		fetch('https://jsonplaceholder.typicode.com/users')
+// 		.then(response => response.json())
+// 	 	.then(users => {setRobots(users)})
+// 	 	.then(setState('loaded'))
+// 	}}, []) // <-- didMount da se ne ucitava stalno
+
+useEffect(users => {setRobots(users)}, [])
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
@@ -124,6 +127,7 @@ const filterRobotsName = robots.filter(robot => {
 				return '';
 		}
 })
+
 if (route === 'home')
 {
 	return (
@@ -132,8 +136,6 @@ if (route === 'home')
         <div className=' tc'>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1'>RoboFriends</h1>
-			{/* <input onClick={() => route !=='search' ? routeChange : setRoute === 'search' && console.log('was clicked')} type="submit" value="Search robots"/>
-			<input onClick={() => route !=='create' ? routeChange : setRoute === 'create'}  type="submit" value="Create robots"/> */}
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{ justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{ justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
 		</div>
@@ -156,7 +158,7 @@ if (route === 'create')
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
@@ -204,7 +206,7 @@ else if (state === 'loaded') {
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<SearchBox theme={theme} searchChange={onSearchChange}/>
+				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
 				<p class='p1'>Search found no robots</p>
 			</div>
 	        <footer>
@@ -224,7 +226,7 @@ else if (state === 'loaded') {
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<SearchBox theme={theme} searchChange={onSearchChange} />
+				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
 						<CardList theme={theme} robots={filterRobotsName}/>
 					</ErrorBoundry>
