@@ -1,8 +1,12 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ robots, theme, newCard }) =>{
-	const cardComponent = newCard.map((users, i) => {
+const CardList = ({ robots, theme, newCard, setRobots }) =>{
+	//setRobots.push(newCard);
+	
+	// setRobots(newCard => [...newCard, newElement]);
+	
+	const cardComponent = robots.map((robot, i) => {
 		return <Card theme={theme} key={i} id={newCard[i].id} newName={newCard[i].newName} newEmail={newCard[i].newEmail} newWebsite={newCard[i].newWebsite}/> 
 	})
 	return(

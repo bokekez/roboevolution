@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Card = (props, theme, newCard,) =>{
 	const {newName, newEmail, newWebsite, id } = props
 	console.log(newName);
+	console.log(id);
 	if (props.theme === 'light')
 	{
 	return (

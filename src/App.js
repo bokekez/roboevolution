@@ -109,30 +109,30 @@ let colorVarText;
 
 // useEffect(() => {function handler (newCard) { setRobots(newCard)}}, [])
 
-// useEffect(users => setRobots(users), []);
+// useEffect((() => {robots.json()}) (users => {setRobots(users)}), [])
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
 	}
 
-const filterRobotsName = robots.filter(robot => {
-	if (robot.name.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.name;
-			}
+// const filterRobotsName = robots.filter(robot => {
+// 	if (robot.newName.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newName;
+// 			}
 
-	else if (robot.email.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.email;
-			}	
-	else if (robot.website.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.website;
-			}	
-	else{
-				return '';
-		}
-})
+// 	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newEmail;
+// 			}	
+// 	else if (robot.newWebsite.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newWebsite;
+// 			}	
+// 	else{
+// 				return '';
+// 		}
+// })
 
 if (route === 'home')
 {
@@ -164,7 +164,7 @@ if (route === 'create')
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
@@ -235,7 +235,8 @@ else if (state === 'loaded') {
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
-					<CardList theme={theme} newCard={[newCard]} robots={filterRobotsName}/>
+						<CardList theme={theme} newCard={[newCard]} setRobots={setRobots} robots={robots}/>
+						{/* <CardList theme={theme} newCard={[newCard]} robots={filterRobotsName} setRobots={setRobots}/> */}
 					</ErrorBoundry>
 			</div>
 			 <footer>

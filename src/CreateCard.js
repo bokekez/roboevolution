@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1}) => {
+const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1, robots, setRobots}) => {
     const submitValue = (e) => {
         e.preventDefault()
         let id2 = id1 + 1;
@@ -10,6 +10,8 @@ const CreateCard = ({newCard, props, name, website, email, setName, setEmail, se
         newCard.newEmail = email;
         newCard.newWebsite = website;
         console.log(newCard);
+        setRobots(newCard => [...robots, newCard]);
+        console.log(robots);
     }
     return(
 	<div >
