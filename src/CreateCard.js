@@ -1,9 +1,10 @@
 import React from 'react';
 
 const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar}) => {
+    let id1 = 0;
     const submitValue = (e) => {
         e.preventDefault()
-        let id1 = 0;
+
         id1 = id1 + 1;
         const createNewCard = {
             id: id1,

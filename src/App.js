@@ -103,7 +103,7 @@ let colorVarText;
 // 	 	.then(setState('loaded'))
 // 	}}, []) // <-- didMount da se ne ucitava stalno
 
-useEffect(users => {setRobots(users)}, [])
+useEffect(setRobots(), [])
 
 const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
