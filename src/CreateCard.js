@@ -6,12 +6,6 @@ const CreateCard = ({newCard, props, name, website, email, setName, setEmail, se
         //let id2 = id1 + 1;
         setId1(id1 +1);
         setNewCard({id: id1, newName: name, newEmail: email, newWebsite: website})
-        // NewCard.id = id1;
-        // NewCard.newName = name;
-        // NewCard.newEmail = email;
-        // NewCard.newWebsite = website;
-        //setRobots(newCard => [...robots, newCard]);
-        //setRobots(Object.assign({}, newCard));
         setRobots([...robots, newCard]);
         //setNewRobots([...newRobots, ...robots]);
         

@@ -117,25 +117,24 @@ const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
 	}
 
-const filterRobotsName = robots.filter
-// (robot => {
-// 	if (robot.newName.toLowerCase().includes(searchfield.toLowerCase()))
-// 			{
-// 				return robot.newName;
-// 			}
+const filterRobotsName = robots.filter(robot => {
+	if (robot.newName.toLowerCase().includes(searchfield.toLowerCase()))
+			{
+				return robot.newName;
+			}
 
-// 	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
-// 			{
-// 				return robot.newEmail;
-// 			}	
-// 	else if (robot.newWebsite.toLowerCase().includes(searchfield.toLowerCase()))
-// 			{
-// 				return robot.newWebsite;
-// 			}	
-// 	else{
-// 				return '';
-// 		}
-// })
+	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
+			{
+				return robot.newEmail;
+			}	
+	else if (robot.newWebsite.toLowerCase().includes(searchfield.toLowerCase()))
+			{
+				return robot.newWebsite;
+			}	
+	else{
+				return '';
+		}
+})
 
 if (route === 'home')
 {
@@ -239,7 +238,7 @@ else if (state === 'loaded') {
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
 						{/* <CardList theme={theme} newCard={[newCard]} setRobots={setRobots} robots={robots}/> */}
-						<CardList theme={theme} newCard={[newCard]} robots={[filterRobotsName,...robots]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
+						<CardList theme={theme} newCard={newCard} robots={[...robots]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
 					</ErrorBoundry>
 			</div>
 			 <footer>
