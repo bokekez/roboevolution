@@ -27,7 +27,7 @@ const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
 const [id1, setId1] = useState(0);
-const [newCard, setNewCard] = useState({id: 0, newName: '', newEmail: '', newWebsite: ''})
+const [newCard, setNewCard] = useState({id: 0, newName: 'Place', newEmail: 'Holder@gmail.com', newWebsite: 'PH.com'})
 
 
 // const newCard = {
@@ -41,6 +41,7 @@ const [newCard, setNewCard] = useState({id: 0, newName: '', newEmail: '', newWeb
 const [theme, setTheme] = useState('light');
 const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
+const [newRobots, setNewRobots] = useState([]);
 const [searchfield, setSearchfield] = useState('');
 
 
@@ -116,24 +117,25 @@ const onSearchChange = (event) => {
 		setSearchfield(event.target.value)
 	}
 
-const filterRobotsName = robots.filter(robot => {
-	if (robot.newName.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.newName;
-			}
+const filterRobotsName = robots.filter
+// (robot => {
+// 	if (robot.newName.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newName;
+// 			}
 
-	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.newEmail;
-			}	
-	else if (robot.newWebsite.toLowerCase().includes(searchfield.toLowerCase()))
-			{
-				return robot.newWebsite;
-			}	
-	else{
-				return '';
-		}
-})
+// 	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newEmail;
+// 			}	
+// 	else if (robot.newWebsite.toLowerCase().includes(searchfield.toLowerCase()))
+// 			{
+// 				return robot.newWebsite;
+// 			}	
+// 	else{
+// 				return '';
+// 		}
+// })
 
 if (route === 'home')
 {
@@ -165,7 +167,7 @@ if (route === 'create')
 				 onClick={routeChangeHome} type="submit" value="Home"/>
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
-				<CreateCard robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 			</div>
 			 <footer>
 	        </footer>
@@ -237,7 +239,7 @@ else if (state === 'loaded') {
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
 						{/* <CardList theme={theme} newCard={[newCard]} setRobots={setRobots} robots={robots}/> */}
-						<CardList theme={theme} newCard={[newCard]} robots={[filterRobotsName,...robots]} setRobots={setRobots}/> 
+						<CardList theme={theme} newCard={[newCard]} robots={[filterRobotsName,...robots]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
 					</ErrorBoundry>
 			</div>
 			 <footer>

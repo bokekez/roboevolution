@@ -1,18 +1,20 @@
 import React from 'react';
 
-const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1, robots, setRobots}) => {
+const CreateCard = ({newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1, robots, setRobots, setNewRobots, newRobots, newName, id, newEmail, newWebsite, setNewCard}) => {
     const submitValue = (e) => {
         e.preventDefault()
-        let id2 = id1 + 1;
+        //let id2 = id1 + 1;
         setId1(id1 +1);
-        newCard.id = id2;
-        newCard.newName = name;
-        newCard.newEmail = email;
-        newCard.newWebsite = website;
-        console.log(newCard);
+        setNewCard({id: id1, newName: name, newEmail: email, newWebsite: website})
+        // NewCard.id = id1;
+        // NewCard.newName = name;
+        // NewCard.newEmail = email;
+        // NewCard.newWebsite = website;
         //setRobots(newCard => [...robots, newCard]);
-        //Object.assign(robots, ...newCard)
+        //setRobots(Object.assign({}, newCard));
         setRobots([...robots, newCard]);
+        //setNewRobots([...newRobots, ...robots]);
+        
         console.log(robots);
     }
     return(
