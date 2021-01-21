@@ -5,9 +5,9 @@ const CreateCard = ({newCard, props, name, website, email, setName, setEmail, se
         e.preventDefault()
         //let id2 = id1 + 1;
         setId1(id1 +1);
-        setNewCard({id: id1, newName: name, newEmail: email, newWebsite: website})
-        setRobots([...robots, newCard]);
-        //setNewRobots([...newRobots, ...robots]);
+        const currentNewCard = {id: id1, newName: name, newEmail: email, newWebsite: website}
+        setNewCard(currentNewCard)
+        setRobots([...robots, currentNewCard]);
         
         console.log(robots);
     }
