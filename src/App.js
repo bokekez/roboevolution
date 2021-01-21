@@ -122,7 +122,6 @@ const filterRobotsName = robots.filter(robot => {
 			{
 				return robot.newName;
 			}
-
 	else if (robot.newEmail.toLowerCase().includes(searchfield.toLowerCase()))
 			{
 				return robot.newEmail;
@@ -200,28 +199,28 @@ if (state === 'initial')
 		)
  	}
 else if (state === 'loaded') {
-	// if (filterRobotsName == '')
-	// {
-	// 	return(
-	// 		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
-	// 		<GlobalStyles />
-	// 		<div className='tc'>	
-	// 			<div style={{display: 'flex', flexDirection: 'row'}}>
-	// 			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-	// 			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-	// 			 onClick={routeChangeCreate} type="submit" value="Create"/>
-	// 			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
-	// 			 onClick={routeChangeHome} type="submit" value="Home"/>
-	// 			</div>
-	// 			<h1 className='f1'>RoboFriends</h1>
-	// 			<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
-	// 			<p class='p1'>Search found no robots</p>
-	// 		</div>
-	//         <footer>
-	//         </footer>
-	//     	</ThemeProvider>
-	// 		)
- // }else  
+	if (filterRobotsName == '')
+	{
+		return(
+			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
+			<GlobalStyles />
+			<div className='tc'>	
+				<div style={{display: 'flex', flexDirection: 'row'}}>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeHome} type="submit" value="Home"/>
+				</div>
+				<h1 className='f1'>RoboFriends</h1>
+				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
+				<p class='p1'>Search found no robots</p>
+			</div>
+	        <footer>
+	        </footer>
+	    	</ThemeProvider>
+			)
+ }else  
 {		
 		return(		
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
@@ -237,8 +236,7 @@ else if (state === 'loaded') {
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
-						{/* <CardList theme={theme} newCard={[newCard]} setRobots={setRobots} robots={robots}/> */}
-						<CardList theme={theme} newCard={newCard} robots={[...robots]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
+						<CardList theme={theme} newCard={newCard} robots={[...filterRobotsName]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
 					</ErrorBoundry>
 			</div>
 			 <footer>
