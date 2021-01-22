@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const LastCard = ({props, robots, theme}) => {
+const LastCard = ({props, robots, theme, newName}) => {
     const [componentToRender, setComponentToRender] = React.useState()
     
     React.useEffect(() => {
@@ -11,15 +11,28 @@ const LastCard = ({props, robots, theme}) => {
     // console.log(robotData)
     console.log(JSON.stringify(robots))
     // // debugger;
-     setComponentToRender(<Card robotData={robotData} theme={theme} id={robotData[0].id} name={robotData[0].newName} email={robotData[0].newEmail} website={robotData[0].newWebsite}/>)
+    if (robotData != null){
+    setComponentToRender(<Card robotData={robotData} theme={theme}
+        id={robotData.id}
+        newName={robotData.newName}
+        newEmail={robotData.newName}
+        newWebsite={robotData.newName} />)
+        }
+     //  setComponentToRender(<Card robotData={robotData} theme={theme}
+    //     id={robotData ? robotData.id : ''}
+    //     newName={robotData ? robotData.newName : "" }
+    //     newEmail={robotData ? robotData.newName : ""}
+    //     newWebsite={robotData ? robotData.newName : ""} />)
+    //     }
+    // }, [robots, theme])
     }, [robots, theme])
-    return (
-    
-    <div>
-        {componentToRender}
-    </div>
-    )
 
+        return (
+        <div>
+            {componentToRender}
+        </div>
+        )
+    
 }
     
 export default LastCard;
