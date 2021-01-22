@@ -44,7 +44,7 @@ const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
 const [newRobots, setNewRobots] = useState([]);
 const [searchfield, setSearchfield] = useState('');
-// const [lastCard, setLastCard] = useState([]);
+const [lastCardComponentMap, setlastCardComponentMap] = useState([]);
 
 
 
@@ -172,7 +172,7 @@ if (route === 'create')
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
-				{/* <LastCard theme={theme} newCard={newCard} robots={robots}/> */}
+				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap}/> 
 			</div>
 			 <footer>
 	        </footer>

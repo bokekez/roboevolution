@@ -5,13 +5,13 @@ const CreateCard = ({setLastCard, newCard, props, name, website, email, setName,
         e.preventDefault()
         //let id2 = id1 + 1;
         // setId1(id1 +1);
-        // newCard.id = Math.floor(Math.random() * (1000 - 0 + 1));
         id1 = Math.floor(Math.random() * (1000 - 0 + 1));
+
         const currentNewCard = {id: id1, newName: name, newEmail: email, newWebsite: website}
         setNewCard(currentNewCard)
         setRobots([...robots, currentNewCard]);
         console.log(robots);
-  
+        // setLastCard(currentNewCard);
     }
     return(
 	<div >
