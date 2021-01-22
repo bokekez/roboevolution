@@ -10,6 +10,7 @@ import { lightTheme, darkTheme, grayTheme } from './theme';
 import { GlobalStyles } from './global';
 import Toggle from './toggle.js'
 import CreateCard from './CreateCard';
+import LastCard from './LastCard.js'
 
 
 // const state ={
@@ -43,6 +44,7 @@ const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
 const [newRobots, setNewRobots] = useState([]);
 const [searchfield, setSearchfield] = useState('');
+// const [lastCard, setLastCard] = useState([]);
 
 
 
@@ -135,6 +137,10 @@ const filterRobotsName = robots.filter(robot => {
 		}
 })
 
+
+// const lastCard = robots[robots.length-1];
+
+
 if (route === 'home')
 {
 	return (
@@ -166,6 +172,7 @@ if (route === 'create')
 				</div>
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				{/* <LastCard theme={theme} newCard={newCard} robots={robots}/> */}
 			</div>
 			 <footer>
 	        </footer>
