@@ -11,13 +11,21 @@ const CurrentRobot = ({robots, newName}) => {
         if (robotData != null){
             setCurrentName(robotData.newName)
         }}, [robots])
-    return (
+    if (currentName != null) {
+        return (
         <div>
             <h1 className='f5'>Robot {currentName} has been created!</h1>
-             
-              
         </div>
-    )
+        )
+    } else {
+        return (
+        <div>
+            <h1 className='f5'>Create your new robot!</h1>
+        </div>
+        )
+    }
+        
+    
     // if (robots.length != 0) {
     //     return(
     //         <Header className='f5'>Robot {CurrentRobot(display)}has been created!</Header>
