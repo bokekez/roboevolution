@@ -9,14 +9,15 @@ const LastCard = ({props, robots, theme, newName}) => {
     const index = robots.length - 1
     const robotData = robots[index]
     // console.log(robotData)
-    console.log(JSON.stringify(robots))
+   
     // // debugger;
     if (robotData != null){
     setComponentToRender(<Card robotData={robotData} theme={theme}
         id={robotData.id}
         newName={robotData.newName}
         newEmail={robotData.newName}
-        newWebsite={robotData.newName} />)
+        newWebsite={robotData.newName} />
+        )
         }
      //  setComponentToRender(<Card robotData={robotData} theme={theme}
     //     id={robotData ? robotData.id : ''}
@@ -26,10 +27,10 @@ const LastCard = ({props, robots, theme, newName}) => {
     //     }
     // }, [robots, theme])
     }, [robots, theme])
-
         return (
         <div>
             {componentToRender}
+            
         </div>
         )
     

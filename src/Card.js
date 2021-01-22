@@ -13,8 +13,9 @@ const Card = (props, theme, newCard,) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
-				{console.log(newName)}
+				{console.log(newName)}	
 			</div>
+			
 		</div>
 	)
 	}

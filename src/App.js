@@ -11,7 +11,7 @@ import { GlobalStyles } from './global';
 import Toggle from './toggle.js'
 import CreateCard from './CreateCard';
 import LastCard from './LastCard.js'
-
+import CurrentRobot from './CurrentRobot.js'
 
 // const state ={
 // 	robots: robots,
@@ -173,6 +173,7 @@ if (route === 'create')
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap}/> 
+				<CurrentRobot robots={robots} /> 
 			</div>
 			 <footer>
 	        </footer>
