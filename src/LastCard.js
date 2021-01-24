@@ -15,8 +15,8 @@ const LastCard = ({props, robots, theme, newName}) => {
     setComponentToRender(<Card robotData={robotData} theme={theme}
         id={robotData.id}
         newName={robotData.newName}
-        newEmail={robotData.newName}
-        newWebsite={robotData.newName} />
+        newEmail={robotData.newEmail}
+        newWebsite={robotData.newWebsite} />
         )
     }
      //  setComponentToRender(<Card robotData={robotData} theme={theme}
