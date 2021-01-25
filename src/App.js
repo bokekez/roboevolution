@@ -13,6 +13,7 @@ import CreateCard from './CreateCard';
 import LastCard from './LastCard.js'
 import CurrentRobot from './CurrentRobot.js'
 import Register from './Register.js'
+import Login from './Login.js'
 
 // const state ={
 // 	robots: robots,
@@ -245,6 +246,35 @@ if ( route === 'register'){
 			 <footer>
 	        </footer>
 	    	</ThemeProvider >
+	)
+}
+if ( route === 'login'){
+	return (
+		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
+		<GlobalStyles />
+		<div className='tc'>	
+			<div style={{display: 'flex', flexDirection: 'row'}}>	
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+			 onClick={routeChangeSearch} type="submit" value="Search"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+			 onClick={routeChangeCreate} type="submit" value="Create"/>
+			 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+			 onClick={routeChangeHome} type="submit" value="Home"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+			onClick={routeLogIn} type="submit" value="LogIn"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+			onClick={routeRegister} type="submit" value="Register"/>
+			
+			{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
+			</div>
+			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+			<h1 className='f1'>RoboFriends</h1>
+			<Login user={user} setUser={setUser} route={route} setRoute={setRoute}/>
+			
+		</div>
+		 <footer>
+		</footer>
+		</ThemeProvider >
 	)
 }
 if ( route === 'search')
