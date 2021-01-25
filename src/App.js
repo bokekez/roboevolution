@@ -83,6 +83,18 @@ const routeChangeHome = () => {
 	}
 }
 
+const routeLogIn = () => {
+	if (route !== 'login'){
+		setRoute('login')
+	}
+}
+
+const routeRegister = () => {
+	if (route !== 'register'){
+		setRoute('register')
+	}
+}
+
 let colorVar;
 let colorVarText;
 	switch(theme)
@@ -147,6 +159,18 @@ if (route === 'home')
 		<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
  		<GlobalStyles /> 
         <div className=' tc'>
+			<div style={{display: 'flex', flexDirection: 'row'}}>	
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				 onClick={routeChangeSearch} type="submit" value="Search"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeHome} type="submit" value="Home"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeLogIn} type="submit" value="LogIn"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeRegister} type="submit" value="Register"/>
+			</div>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1'>RoboFriends</h1>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{ justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
@@ -163,13 +187,21 @@ if (route === 'create')
 			<ThemeProvider theme={theme === 'light' ? lightTheme : theme === 'dark' ? darkTheme : theme === 'gray' ? grayTheme : theme}>
 			<GlobalStyles />
 			<div className='tc'>	
-				<div style={{display: 'flex', flexDirection: 'row'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				<div style={{display: 'flex', flexDirection: 'row'}}>	
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
 				 onClick={routeChangeSearch} type="submit" value="Search"/>
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 onClick={routeChangeCreate} type="submit" value="Create"/>
+				 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeLogIn} type="submit" value="LogIn"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeRegister} type="submit" value="Register"/>
+				
+				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 				</div>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 				<CurrentRobot theme={theme} robots={robots} /> 
@@ -191,12 +223,18 @@ if (state === 'initial')
  		<GlobalStyles /> 
         <div className='tc'>
 				<div style={{display: 'flex', flexDirection: 'row'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', height: '1rem', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				 onClick={routeChangeSearch} type="submit" value="Search"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeCreate} type="submit" value="Create"/>
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', height: '1rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeLogIn} type="submit" value="LogIn"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1'>RoboFriends</h1>
 			{/* <SearchBox theme={theme} searchChange={onSearchChange}/> */}
 			<h1 className='tc'>Loading</h1> 
@@ -215,12 +253,18 @@ else if (state === 'loaded') {
 			<GlobalStyles />
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				 onClick={routeChangeSearch} type="submit" value="Search"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeCreate} type="submit" value="Create"/>
-				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeLogIn} type="submit" value="LogIn"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
 				<p class='p1'>Search found no robots</p>
@@ -236,12 +280,18 @@ else if (state === 'loaded') {
 			<GlobalStyles />
 			<div className='tc'>	
 				<div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<input className={`dim ${colorVar} ${colorVarText}`} style={{boxShadow: 'none', outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute', cursor: 'pointer', top: '1rem', borderRadius: '12px'}} 
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', cursor: 'pointer', top: '1rem', borderRadius: '12px',  }} 
+				 onClick={routeChangeSearch} type="submit" value="Search"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeCreate} type="submit" value="Create"/>
-				<input className={`dim ${colorVar} ${colorVarText}`} style={{boxShadow: 'none', outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start', position: 'absolute',left: '7rem', cursor: 'pointer', top: '1rem', borderRadius: '12px'}} 
+				 <input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-start',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				 onClick={routeChangeHome} type="submit" value="Home"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeLogIn} type="submit" value="LogIn"/>
+				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
+				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
+				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
