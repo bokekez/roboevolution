@@ -239,7 +239,7 @@ if ( route === 'register'){
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
-				<Register user={user} setUser={setUser}/>
+				<Register user={user} setUser={setUser} route={route} setRoute={setRoute}/>
 				
 			</div>
 			 <footer>
