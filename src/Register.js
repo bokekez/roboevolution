@@ -1,15 +1,15 @@
 import React from 'react';
 
 const Register = ({user, setUser, porps, username, usermail, password, setRoute}) => {
-    // const [userTemp, setUserTemp] = React.useState("")
-    // const [mailTemp, setMailTemp] = React.useState("")
-    // const [pwTemp, setPwTemp] = React.useState("")
+    const [userError, setUserError] = React.useState("")
+    const [mailError, setMailError] = React.useState("")
+    const [pwError, setPwError] = React.useState("")
     let userTemp = '';
     let mailTemp = '';
     let pwTemp = '';
-    let userError = '';
-    let mailError = '';
-    let pwError = '';
+    // let userError = '';
+    // let mailError = '';
+    // let pwError = '';
     const nameChange = (event) => {
         userTemp = event.target.value
         console.log(userTemp)
@@ -30,9 +30,12 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             const currentUser = {username : userTemp, usermail : mailTemp, password : pwTemp}  
             console.log(currentUser);
             setUser(currentUser);
-            userError = '';
-            mailError = '';
-            pwError = '';
+            // userError = '';
+            // mailError = '';
+            // pwError = '';
+            setUserError("");
+            setMailError("");
+            setPwError("");
             userTemp = '';
             mailTemp = '';
             pwTemp = '';
@@ -41,11 +44,11 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
     }
     function validateName (userError) {
         if (userTemp === '') {
-            userError = 'Field can not be empty';
+            setUserError('Field can not be empty');
             return false;
         }
         if (userTemp.includes(' ')){
-            userError = 'Users can only have one name';
+            setUserError('Users can only have one name');
             return false;
         }
 
@@ -57,21 +60,21 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
     }    
     function validateEmail (mailError) {
         if (mailTemp === '') {
-            mailError = 'Field can not be empty';
+            setMailError('Field can not be empty');
             return false;
         }
         if (mailTemp.includes(' ')){
-            mailError = 'Invalid email';
+            setMailError('Invalid email');
             return false;
         } 
  
         if (!mailTemp.includes('@')){
-            mailError = 'Invalid email';
+            setMailError('Invalid email');
             return false;
         }
 
         if (!mailTemp.includes('.')){
-            mailError = 'Invalid email';
+            setMailError('Invalid email');
             return false;
         }
 
@@ -82,11 +85,11 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
     }
     function validatePassword (pwError) {
         if (pwTemp === '') {
-            pwError = 'Field can not be empty';
+            setPwError('Field can not be empty');
             return false;
         }
         if (pwTemp.includes(' ')){
-            pwError = 'Invalid character';
+            setPwError('Invalid character');
             return false;
         }
 
@@ -106,7 +109,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="user-name" onChange={nameChange}/>
             </div>
                 {
-                userError === false ? (<div style={{fontSize: "6", color: "red"}}>
+                userError ? (<div style={{fontSize: "6", color: "red"}}>
                     {userError}
                 </div>): null
                 }
@@ -115,7 +118,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="email-address" onChange={mailChange}/>
             </div>
                  {
-                mailError === false ? (<div style={{fontSize: "6", color: "red"}}>
+                mailError ? (<div style={{fontSize: "6", color: "red"}}>
                     {mailError}
                 </div>): null
                 }
@@ -124,7 +127,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 <input className="b pa2 input-reset ba bg-transparent grow"  type="password" id="password" onChange={passwordChange}/>
             </div>
                 {
-                pwError === false ? (<div style={{fontSize: "6", color: "red"}}>
+                pwError ? (<div style={{fontSize: "6", color: "red"}}>
                     {pwError}
                 </div>): null
                 }
