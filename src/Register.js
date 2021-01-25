@@ -12,7 +12,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
     let pwError = '';
     const nameChange = (event) => {
         userTemp = event.target.value
-        console.log(username)
+        console.log(userTemp)
     }
     const mailChange = (event) => {
         mailTemp = event.target.value   
@@ -27,16 +27,15 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
         const isValidPassword = validatePassword();
         if (isValidName === true && isValidEmail === true && isValidPassword === true)
         {
-            e.preventDefault()
             const currentUser = {username : userTemp, usermail : mailTemp, password : pwTemp}  
             console.log(currentUser);
             setUser(currentUser);
             userError = '';
             mailError = '';
             pwError = '';
-            // userTemp = '';
-            // mailTemp = '';
-            // pwTemp = '';
+            userTemp = '';
+            mailTemp = '';
+            pwTemp = '';
             // setRoute('home');
         }
     }
@@ -50,11 +49,10 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             return false;
         }
 
-        if (userError !== null) {
+        if (userError) {
             
             return false;
         }
-        
         return true;
     }    
     function validateEmail (mailError) {
@@ -77,10 +75,9 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             return false;
         }
 
-        if (mailError !== null) {
+        if (mailError) {
             return false;
         }
-
         return true;
     }
     function validatePassword (pwError) {
@@ -93,11 +90,10 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             return false;
         }
 
-        if (pwError !== null) {
+        if (pwError) {
             
             return false;
         }
-        
         return true;
     }  
     return (
@@ -107,28 +103,28 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             <legend className="ph0 mh0 fw6 clip">Sign Up</legend>
             <div className="mt3">
                 <label className="db fw4 lh-copy f6">Username</label>
-                <input className="b pa2 input-reset ba bg-transparent grow" value={userTemp} type="text" id="user-name" onChange={nameChange}/>
+                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="user-name" onChange={nameChange}/>
             </div>
                 {
-                userError !== null ? (<div style={{fontSize: "6", color: "red"}}>
+                userError === false ? (<div style={{fontSize: "6", color: "red"}}>
                     {userError}
                 </div>): null
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Email address</label>
-                <input className="b pa2 input-reset ba bg-transparent grow" value={mailTemp} type="text" id="email-address" onChange={mailChange}/>
+                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="email-address" onChange={mailChange}/>
             </div>
                  {
-                mailError !== null ? (<div style={{fontSize: "6", color: "red"}}>
+                mailError === false ? (<div style={{fontSize: "6", color: "red"}}>
                     {mailError}
                 </div>): null
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Password</label>
-                <input className="b pa2 input-reset ba bg-transparent grow" value={pwTemp} type="text" id="password" onChange={passwordChange}/>
+                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="password" onChange={passwordChange}/>
             </div>
                 {
-                pwError !== null ? (<div style={{fontSize: "6", color: "red"}}>
+                pwError === false ? (<div style={{fontSize: "6", color: "red"}}>
                     {pwError}
                 </div>): null
                 }
