@@ -121,7 +121,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Password</label>
-                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="password" onChange={passwordChange}/>
+                <input className="b pa2 input-reset ba bg-transparent grow"  type="password" id="password" onChange={passwordChange}/>
             </div>
                 {
                 pwError === false ? (<div style={{fontSize: "6", color: "red"}}>
