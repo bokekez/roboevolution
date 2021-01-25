@@ -173,8 +173,8 @@ if (route === 'home')
 			</div>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1'>RoboFriends</h1>
-			<input className={` dim ${colorVar} ${colorVarText}`} style={{ justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
-			<input className={` dim ${colorVar} ${colorVarText}`} style={{ justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
 		</div>
         <footer>
         </footer>
