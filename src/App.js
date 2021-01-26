@@ -194,15 +194,25 @@ if (route === 'create')
 				onClick={routeLogIn} type="submit" value="LogIn"/>
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
-				
-				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
+                
+				{ logedin === true ? 
+				(<div>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 				<CurrentRobot theme={theme} robots={robots} /> 
-				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap}/> 
+				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
+				</div>)
+                : <h1 className='f3'>Log in to create robots</h1> 
+                }
+				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 				
+				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
+				<h1 className='f1'>RoboFriends</h1>
+				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CurrentRobot theme={theme} robots={robots} /> 
+				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/>  */}
 			</div>
 			 <footer>
 	        </footer>
@@ -231,7 +241,7 @@ if ( route === 'register'){
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
-				<Register user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore}/>
+				<Register user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore} setLogedin={setLogedin}/>
 				
 			</div>
 			 <footer>

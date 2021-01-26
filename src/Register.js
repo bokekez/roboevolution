@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Register = ({user, setUser, porps, username, usermail, password, setRoute, currentUser, userStore, setUserStore}) => {
+const Register = ({user, setUser, porps, username, usermail, password, setRoute, currentUser, userStore, setUserStore, setLogedin}) => {
     const [userError, setUserError] = React.useState("")
     const [mailError, setMailError] = React.useState("")
     const [pwError, setPwError] = React.useState("")
@@ -42,6 +42,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
             setMailTemp('');
             setPwTemp(''); 
             setRoute('home');
+            setLogedin(true);
         }
     }
     function validateName (userError) {
