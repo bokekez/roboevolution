@@ -32,17 +32,8 @@ const [website, setWebsite] = useState('');
 const [id1, setId1] = useState(0);
 const [newCard, setNewCard] = useState({id: 0, newName: 'Place', newEmail: 'Holder@gmail.com', newWebsite: 'PH.com'})
 const [user, setUser] = useState({username: '', usermail: '', password: ''})
-// const [username, setUsername] = useState('');
-// const [password, setPassword] = useState('');
-// const [usermail, setUsermail] = useState('');
-
-// const newCard = {
-// 	id: 0,
-// 	newName: 'name',
-// 	newEmail: 'email',
-// 	newWebsite: 'website'
-// }
-
+const [logedin, setLogedin] = useState(false);
+const [userStore, setUserStore] = useState([]);
 
 const [theme, setTheme] = useState('light');
 const [state, setState] = useState('loaded');
@@ -240,7 +231,7 @@ if ( route === 'register'){
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
-				<Register user={user} setUser={setUser} route={route} setRoute={setRoute}/>
+				<Register user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore}/>
 				
 			</div>
 			 <footer>
@@ -269,7 +260,7 @@ if ( route === 'login'){
 			</div>
 			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 			<h1 className='f1'>RoboFriends</h1>
-			<Login user={user} setUser={setUser} route={route} setRoute={setRoute}/>
+			<Login user={user} setUser={setUser} route={route} setRoute={setRoute} setLogedin={setLogedin} logedin={logedin} userStore={userStore}/>
 			
 		</div>
 		 <footer>

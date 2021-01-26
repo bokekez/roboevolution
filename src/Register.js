@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Register = ({user, setUser, porps, username, usermail, password, setRoute}) => {
+const Register = ({user, setUser, porps, username, usermail, password, setRoute, currentUser, userStore, setUserStore}) => {
     const [userError, setUserError] = React.useState("")
     const [mailError, setMailError] = React.useState("")
     const [pwError, setPwError] = React.useState("")
@@ -30,6 +30,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             const currentUser = {username : userTemp, usermail : mailTemp, password : pwTemp}  
             console.log(currentUser);
             setUser(currentUser);
+            setUserStore(...userStore, currentUser)
             // userError = '';
             // mailError = '';
             // pwError = '';
@@ -39,7 +40,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             userTemp = '';
             mailTemp = '';
             pwTemp = '';
-            // setRoute('home');
+            setRoute('home');
         }
     }
     function validateName (userError) {
@@ -106,7 +107,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
             <legend className="ph0 mh0 fw6 clip">Sign Up</legend>
             <div className="mt3">
                 <label className="db fw4 lh-copy f6">Username</label>
-                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="user-name" onChange={nameChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="text" id="user-name" onChange={nameChange}/>
             </div>
                 {
                 userError ? (<div style={{fontSize: "6", color: "red"}}>
@@ -115,7 +116,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Email address</label>
-                <input className="b pa2 input-reset ba bg-transparent grow"  type="text" id="email-address" onChange={mailChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="text" id="email-address" onChange={mailChange}/>
             </div>
                  {
                 mailError ? (<div style={{fontSize: "6", color: "red"}}>
@@ -124,7 +125,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute}
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Password</label>
-                <input className="b pa2 input-reset ba bg-transparent grow"  type="password" id="password" onChange={passwordChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="password" id="password" onChange={passwordChange}/>
             </div>
                 {
                 pwError ? (<div style={{fontSize: "6", color: "red"}}>
