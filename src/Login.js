@@ -15,8 +15,13 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
         const currentUser = {usermail : mailTemp, password : pwTemp}  
         console.log(currentUser);
         setUsercheck(currentUser);
-        const checkUser = userStore.includes(userCheck.usermail)
-        console.log(checkUser);
+        const checkUser = userStore.some(user => mailTemp == userStore.usermail)
+        if (checkUser === true){
+            setLogedin(true);
+            console.log(logedin);
+        } 
+        // const checkUser = userStore.includes(userCheck.usermail)
+        //console.log(checkUser);
         //if(user.usermail == userCheck.usermail && user.password == userCheck.password) {
         // if(userStore.usermail === userCheck.usermail && userStore.password === userCheck.password) {
         //     setLogedin(true);
