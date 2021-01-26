@@ -171,6 +171,7 @@ if (route === 'home')
 	 		<h1 className='f1'>RoboFriends</h1>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
+			{ logedin !== true ? (<h1 className='f5 pa4'>Log in or register to create robots</h1>) : <h1 className='pa4'>Create your robots!</h1> }
 		</div>
         <footer>
         </footer>
