@@ -4,21 +4,24 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
     const [userError, setUserError] = React.useState("")
     const [mailError, setMailError] = React.useState("")
     const [pwError, setPwError] = React.useState("")
-    let userTemp = '';
-    let mailTemp = '';
-    let pwTemp = '';
+    const [userTemp, setUserTemp] = React.useState("")
+    const [mailTemp, setMailTemp] = React.useState("")
+    const [pwTemp, setPwTemp] = React.useState("")
+    // let userTemp = '';
+    // let mailTemp = '';
+    // let pwTemp = '';
     // let userError = '';
     // let mailError = '';
     // let pwError = '';
     const nameChange = (event) => {
-        userTemp = event.target.value
+        setUserTemp(event.target.value)
         console.log(userTemp)
     }
     const mailChange = (event) => {
-        mailTemp = event.target.value   
+        setMailTemp(event.target.value)
     }
     const passwordChange = (event) =>{
-        pwTemp = event.target.value  
+        setPwTemp(event.target.value)  
     }
     const submitValue = (e) => {
         e.preventDefault();
@@ -28,18 +31,16 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
         if (isValidName === true && isValidEmail === true && isValidPassword === true)
         {
             const currentUser = {username : userTemp, usermail : mailTemp, password : pwTemp}  
-            console.log(currentUser);
             setUser(currentUser);
-            setUserStore(...userStore, currentUser)
-            // userError = '';
-            // mailError = '';
-            // pwError = '';
+            setUserStore([...userStore, currentUser]);
+            console.log(currentUser);
+            console.log(userStore);
             setUserError("");
             setMailError("");
             setPwError("");
-            userTemp = '';
-            mailTemp = '';
-            pwTemp = '';
+            setUserTemp('');
+            setMailTemp('');
+            setPwTemp(''); 
             setRoute('home');
         }
     }
@@ -107,7 +108,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
             <legend className="ph0 mh0 fw6 clip">Sign Up</legend>
             <div className="mt3">
                 <label className="db fw4 lh-copy f6">Username</label>
-                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="text" id="user-name" onChange={nameChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow" value={userTemp} type="text" id="user-name" onChange={nameChange}/>
             </div>
                 {
                 userError ? (<div style={{fontSize: "6", color: "red"}}>
@@ -116,7 +117,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Email address</label>
-                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="text" id="email-address" onChange={mailChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  value={mailTemp} type="text" id="email-address" onChange={mailChange}/>
             </div>
                  {
                 mailError ? (<div style={{fontSize: "6", color: "red"}}>
@@ -125,7 +126,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
                 }
             <div className="mt3">
                 <label className="db fw4 lh-copy f6" >Password</label>
-                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow"  type="password" id="password" onChange={passwordChange}/>
+                <input className="hover-white hover-bg-black b pa2 input-reset ba bg-transparent grow" value={pwTemp} type="password" id="password" onChange={passwordChange}/>
             </div>
                 {
                 pwError ? (<div style={{fontSize: "6", color: "red"}}>

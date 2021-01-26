@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Login = ({user, setUser, porps, username, usermail, password, setRoute, setLogedin, logedin, userStore}) => {
-    const [userCheck, setUsercheck] = React.useState("")
+    console.log(userStore);
+    const [userCheck, setUsercheck] = React.useState([])
+    const [warning, setWarning] = React.useState("")
     let mailTemp = '';
     let pwTemp = '';
     const mailChange = (event) => {
@@ -13,22 +15,54 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
     const submitValue = (e) => {
         e.preventDefault();
         const currentUser = {usermail : mailTemp, password : pwTemp}  
-        console.log(currentUser);
+        console.log(currentUser, '23');
         setUsercheck(currentUser);
-        const checkUser = userStore.some(user => mailTemp == userStore.usermail)
-        if (checkUser === true){
-            setLogedin(true);
-            console.log(logedin);
-        } 
+        userStore.map((user) => {   
+            if(user.usermail === currentUser.usermail && user.password === currentUser.password) {
+                console.log(logedin);
+                setLogedin(true);
+                //setRoute('home'); 
+            }
+            else {
+                console.log(logedin, 'f');
+                setLogedin(false);    
+        }})
+        // userStore.map(user => {
+        //     //const {usermail, password} = user
+        //     if(user.usermail === mailTemp && user.password === pwTemp){
+        //     return ( setLogedin(true) && setRoute('home'))
+        //     }
+        //   })
+
+        // const checkUser = userStore.some(user =>  userStore.usermail === mailTemp)
+        // if (checkUser === true){
+        //     setLogedin(true);
+        //     console.log(logedin);
+        //     setRoute('home');
+        // } 
+        // else return warning;
+
         // const checkUser = userStore.includes(userCheck.usermail)
         //console.log(checkUser);
         //if(user.usermail == userCheck.usermail && user.password == userCheck.password) {
-        // if(userStore.usermail === userCheck.usermail && userStore.password === userCheck.password) {
-        //     setLogedin(true);
+        // const user = userStore.filter(user => user.usermail === mailTemp && user.password === pwTemp)
+        //     if(user){
+        //     setLogedin(true)
         //     console.log(logedin);
-            
-        //     //setRoute('home');
+        //     }
+        //     setLogedin(false)
+        //     console.log(logedin);
+        // function containsObject  (mailTemp, userStore, pwTemp ) => {
+        //     var i;
+        //     for (i = 0; i < userStore.length; i++) {
+        //         if (userStore.usermail[i] === mailTemp && userStore.password[i] === pwTemp) {
+        //             return setLogedin(true);
+        //         }
+        //     }
+        
+        //     return setLogedin(false);;
         // }
+        
     }
     return (
         <main className="pa4 black-80">
