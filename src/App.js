@@ -14,6 +14,7 @@ import LastCard from './LastCard.js'
 import CurrentRobot from './CurrentRobot.js'
 import Register from './Register.js'
 import Login from './Login.js'
+import User from './User.js'
 
 // const state ={
 // 	robots: robots,
@@ -168,10 +169,10 @@ if (route === 'home')
 				onClick={routeRegister} type="submit" value="Register"/>
 			</div>
         	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
-	 		<h1 className='f1'>RoboFriends</h1>
+	 		<h1 className='f1 b'>RoboFriends</h1>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
-			{ logedin !== true ? (<h1 className='f5 pa4'>Log in or register to create robots</h1>) : <h1 className='pa4'>Create your robots!</h1> }
+			{ logedin !== true ? (<h1 className='f5 pa4 b'>Log in or register to create robots</h1>) : <h1 className='pa4'>Create your robots!</h1> }
 		</div>
         <footer>
         </footer>
@@ -197,7 +198,7 @@ if (route === 'create')
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<h1 className='f1'>RoboFriends</h1>
+				<h1 className='f1 b'>RoboFriends</h1>
                 
 				{ logedin === true ? 
 				(<div>
@@ -205,7 +206,7 @@ if (route === 'create')
 				<CurrentRobot theme={theme} robots={robots} /> 
 				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
 				</div>)
-                : <h1 className='f3'>Log in to create robots</h1> 
+                : <h1 className='f3 b'>Log in to create robots</h1> 
                 }
 				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 				
@@ -237,12 +238,15 @@ if ( route === 'register'){
 				onClick={routeLogIn} type="submit" value="LogIn"/>
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
-				
-				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 				</div>
+				{ logedin !== true ? 
+				(<div>
+				{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
+				
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
 				<Register user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore} setLogedin={setLogedin}/>
+				</div>) : <h1 className='f3 b' >You are already logged in</h1> }
 				
 			</div>
 			 <footer>
@@ -269,9 +273,12 @@ if ( route === 'login'){
 			
 			{/* <Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} /> */}
 			</div>
+			{ logedin !== true ? 
+				(<div>
 			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 			<h1 className='f1'>RoboFriends</h1>
 			<Login user={user} setUser={setUser} route={route} setRoute={setRoute} setLogedin={setLogedin} logedin={logedin} userStore={userStore}/>
+			</div>) : <h1 className='f3 b' >You are already logged in</h1> }
 			
 		</div>
 		 <footer>
@@ -300,9 +307,9 @@ if (state === 'initial')
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-	 		<h1 className='f1'>RoboFriends</h1>
+	 		<h1 className='f1 b'>RoboFriends</h1>
 			{/* <SearchBox theme={theme} searchChange={onSearchChange}/> */}
-			<h1 className='tc'>Loading</h1> 
+			<h1 className='tc b'>Loading</h1> 
 			
 		</div>
         <footer>
@@ -330,7 +337,7 @@ else if (state === 'loaded') {
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<h1 className='f1'>RoboFriends</h1>
+				<h1 className='f1 b'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange}/>
 				<p class='p1'>Search found no robots</p>
 			</div>
@@ -357,7 +364,7 @@ else if (state === 'loaded') {
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
-				<h1 className='f1'>RoboFriends</h1>
+				<h1 className='f1 b'>RoboFriends</h1>
 				<SearchBox newCard={newCard} theme={theme} searchChange={onSearchChange} />
 					<ErrorBoundry>
 						<CardList theme={theme} newCard={newCard} robots={[...filterRobotsName]} setRobots={setRobots} newRobots={newRobots} setNewRobots={setNewRobots}/> 
