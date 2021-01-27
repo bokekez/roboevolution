@@ -7,7 +7,7 @@ const User = ({setLogedUser, logedUser, user, setLogedin, logedin}) => {
         setLogedin(false);
         console.log(logedin)
     }
-    if (user.username !== ""){
+    if (user.username !== "" && logedin === true){
     return (
         <div>
             <h3 className='f7' style={{top: "1rem"}}>{user.username}</h3> 
@@ -16,7 +16,7 @@ const User = ({setLogedUser, logedUser, user, setLogedin, logedin}) => {
             </div>
         )
     }
-    else if (user.username === "" || logedin === false) {
+    else if (logedin === false) {
         return (
             <div><h3 className='f7' style={{top: "1rem"}}>Not logged in</h3></div>
             )
