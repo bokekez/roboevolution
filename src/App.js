@@ -171,7 +171,7 @@ if (route === 'home')
         	<User setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
 			<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1 b'>RoboFriends</h1>
-			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
+			<input className={` dim ${colorVar} ${colorVarText}`} style={{marginBottom: '1rem', fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
 			{ logedin !== true ? (<h2 className='f5 pa4 b'>Log in or register to create robots</h2>) : <h1 className='pa4'>Create your robots!</h1> }
 		</div>
