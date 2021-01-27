@@ -1,9 +1,29 @@
-// import React from 'react';
+import React from 'react';
 
-// const User = () => {
+const User = ({setLogedUser, logedUser, user, setLogedin, logedin}) => {
+    console.log(user.username);
+    debugger;
+    const logout = () => {
+        setLogedin(false);
+        console.log(logedin)
+    }
+    if (user.username !== ""){
+    return (
+        <div>
+            <h3 className='f7' style={{top: "1rem"}}>{user.username}</h3> 
+            <input className='dim' style={{outline: 'none', height: '1rem', width: '3rem', cursor: 'pointer', borderRadius: '12px', fontSize: '0.5rem', textAlign: 'center'}} 
+			onClick={logout} type="submit" value="Log out"/>
+            </div>
+        )
+    }
+    else if (user.username === "" || logedin === false) {
+        return (
+            <div><h3 className='f7' style={{top: "1rem"}}>Not logged in</h3></div>
+            )
+        
+    }
 
-// }
-// return(
+    
+}
 
-// )
-// export default User;
+export default User;

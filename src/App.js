@@ -35,7 +35,7 @@ const [newCard, setNewCard] = useState({id: 0, newName: 'Place', newEmail: 'Hold
 const [user, setUser] = useState({username: '', usermail: '', password: ''})
 const [logedin, setLogedin] = useState(false);
 const [userStore, setUserStore] = useState([]);
-
+const [logedUser, setLogedUser] = useState();
 const [theme, setTheme] = useState('light');
 const [state, setState] = useState('loaded');
 const [robots, setRobots] = useState([]);
@@ -167,12 +167,13 @@ if (route === 'home')
 				onClick={routeLogIn} type="submit" value="LogIn"/>
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
-			</div>
-        	<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
+			</div>		
+        	<User setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
+			<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1 b'>RoboFriends</h1>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeCreate} type="submit" value="Create robots"/>
-			{ logedin !== true ? (<h1 className='f5 pa4 b'>Log in or register to create robots</h1>) : <h1 className='pa4'>Create your robots!</h1> }
+			{ logedin !== true ? (<h2 className='f5 pa4 b'>Log in or register to create robots</h2>) : <h1 className='pa4'>Create your robots!</h1> }
 		</div>
         <footer>
         </footer>
@@ -197,9 +198,9 @@ if (route === 'create')
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
+				<User setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1 b'>RoboFriends</h1>
-                
 				{ logedin === true ? 
 				(<div>
 				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
@@ -245,7 +246,7 @@ if ( route === 'register'){
 				
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1'>RoboFriends</h1>
-				<Register user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore} setLogedin={setLogedin}/>
+				<Register setLogedUser={setLogedUser} user={user} setUser={setUser} route={route} setRoute={setRoute} setUserStore={setUserStore} userStore={userStore} setLogedin={setLogedin}/>
 				</div>) : <h1 className='f3 b' >You are already logged in</h1> }
 				
 			</div>
@@ -277,7 +278,7 @@ if ( route === 'login'){
 				(<div>
 			<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 			<h1 className='f1'>RoboFriends</h1>
-			<Login user={user} setUser={setUser} route={route} setRoute={setRoute} setLogedin={setLogedin} logedin={logedin} userStore={userStore}/>
+			<Login setLogedUser={setLogedUser} user={user} setUser={setUser} route={route} setRoute={setRoute} setLogedin={setLogedin} logedin={logedin} userStore={userStore}/>
 			</div>) : <h1 className='f3 b' >You are already logged in</h1> }
 			
 		</div>

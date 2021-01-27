@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login = ({user, setUser, porps, username, usermail, password, setRoute, setLogedin, logedin, userStore}) => {
+const Login = ({user, setUser, porps, username, usermail, password, setRoute, setLogedin, logedin, userStore, setLogedUser}) => {
     console.log(userStore);
     const [mailError, setMailError] = React.useState("")
     const [pwError, setPwError] = React.useState("")
@@ -25,6 +25,7 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
             setUsercheck(currentUser);
             userStore.find((arrayMember) => {if(arrayMember.usermail.includes(mailTemp) && arrayMember.password.includes(pwTemp)){
                 setLogedin(true);
+                //setLogedUser(username);
                 setRoute('home');
                 setMailError("");
                 setPwError("");

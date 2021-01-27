@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Register = ({user, setUser, porps, username, usermail, password, setRoute, currentUser, userStore, setUserStore, setLogedin}) => {
+const Register = ({user, setUser, porps, username, usermail, password, setRoute, currentUser, userStore, setUserStore, setLogedin, setLogedUser}) => {
     const [userError, setUserError] = React.useState("")
     const [mailError, setMailError] = React.useState("")
     const [pwError, setPwError] = React.useState("")
@@ -33,6 +33,7 @@ const Register = ({user, setUser, porps, username, usermail, password, setRoute,
             const currentUser = {username : userTemp, usermail : mailTemp, password : pwTemp}  
             setUser(currentUser);
             setUserStore([...userStore, currentUser]);
+            //setLogedUser(Object.assign({}, currentUser.username));
             console.log(currentUser);
             console.log(userStore);
             setUserError("");
