@@ -26,11 +26,6 @@ const CurrentRobot = ({robots, newName}) => {
     }
         
     
-    // if (robots.length != 0) {
-    //     return(
-    //         <Header className='f5'>Robot {CurrentRobot(display)}has been created!</Header>
-    //     )
-    
 }
 
 export default CurrentRobot;

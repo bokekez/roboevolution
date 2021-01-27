@@ -19,13 +19,6 @@ const LastCard = ({props, robots, theme, newName}) => {
         newWebsite={robotData.newWebsite} />
         )
     }
-     //  setComponentToRender(<Card robotData={robotData} theme={theme}
-    //     id={robotData ? robotData.id : ''}
-    //     newName={robotData ? robotData.newName : "" }
-    //     newEmail={robotData ? robotData.newName : ""}
-    //     newWebsite={robotData ? robotData.newName : ""} />)
-    //     }
-    // }, [robots, theme])
     }, [robots, theme])
         return (
         <div>
@@ -37,26 +30,3 @@ const LastCard = ({props, robots, theme, newName}) => {
 }
     
 export default LastCard;
-
-// const lastCard = ({ robots, theme, newCard, setRobots,newRobots, setNewRobots, id, newName, newEmail, newWebsite,setlastCardComponentMap, lastCardComponentMap }) =>{
-    
-//     //setlastCardComponentMap(...robots => robots.lenght-1);
-    
-//     setlastCardComponentMap(robots =>[robots, robots.length- 1]);
-//     // const lastCardComponentMap = map => robots.from(map)[map.size-1];
-//     console.log(setlastCardComponentMap, 'ovdje');
-//     const lastCardComponent = lastCardComponentMap.map((f, i) => {
-//         return <Card theme={theme} key={i} id={lastCardComponentMap[i].id} newName={lastCardComponentMap[i].newName} newEmail={lastCardComponentMap[i].newEmail} newWebsite={lastCardComponentMap[i].newWebsite}/> 
-//     }   )
-    
-
-// 	return(
-// 	<div >
-// 		{lastCardComponent}
-//     </div>
-
-// 	);
-
-// }
-
-// export default lastCard;
