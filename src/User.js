@@ -9,16 +9,18 @@ const User = ({setLogedUser, logedUser, user, setLogedin, logedin}) => {
     }
     if (user.username !== "" && logedin === true){
     return (
-        <div className='tc' style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>
-            <h3 className='f7' style={{top: "1rem"}}>{user.username}</h3> 
-            <input className='tc dim bg-transparent hover-white ' style={{outline: 'none', height: '0.8rem', width: '3rem', cursor: 'pointer', borderColor: 'transparent', fontSize: '0.5rem'}} 
-			onClick={logout} type="submit" value="Log out"/>
-            </div>
+        <div className='tc' style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}>
+            <h3 className='f7' >{user.username}</h3>
+            <input className='dim bg-transparent hover-white ' style={{outline: 'none', height: '0.8rem', width: '3rem', cursor: 'pointer', borderColor: 'transparent', fontSize: '0.5rem'}} 
+			onClick={logout} text="Log out" type="submit" value="Log out"/>
+           
+             
+        </div>
         )
     }
     else if (logedin === false) {
         return (
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}><h3 className='f7' style={{top: "1rem"}}>Not logged in</h3></div>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center'}}><h3 className='f7' style={{ height: '0.8rem'}}>Not logged in</h3></div>
             )
         
     }
