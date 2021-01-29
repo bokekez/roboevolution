@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Card = (props, theme, newCard,) =>{
-	const { newName, newEmail, newWebsite, id } = props
+	const { newName, newEmail, newWebsite, id, username } = props
 	console.log(newName);
 	console.log(id);
 	if (props.theme === 'light')
@@ -13,6 +13,7 @@ const Card = (props, theme, newCard,) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
+				<p className='f6'>{username}</p>
 				{console.log(newName)}	
 			</div>
 			
@@ -27,6 +28,7 @@ const Card = (props, theme, newCard,) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
+				<p className='f6'>{username}</p>
 			</div>
 		</div>
 	)
@@ -39,6 +41,7 @@ const Card = (props, theme, newCard,) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
+				<p className='f6'>{username}</p>
 			</div>
 		</div>
 	)
@@ -51,6 +54,7 @@ const Card = (props, theme, newCard,) =>{
 				<h2 className='f5'>{newName}</h2>
 				<p className='f6'>{newEmail}</p>
 				<p2 className='f6'>{newWebsite}</p2>
+				<p className='f6'>{username}</p>
 			</div>
 		</div>
 	)

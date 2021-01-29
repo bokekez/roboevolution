@@ -3,7 +3,7 @@ import Card from './Card';
 
 const CardList = ({ robots, theme, newCard, setRobots,newRobots, setNewRobots }) =>{
 	const cardComponent = robots.map((robot, i) => {
-		 return <Card theme={theme} key={i} id={robots[i].id} newName={robots[i].newName} newEmail={robots[i].newEmail} newWebsite={robots[i].newWebsite}/> 
+		 return <Card theme={theme} key={i} id={robots[i].id} newName={robots[i].newName} newEmail={robots[i].newEmail} newWebsite={robots[i].newWebsite} username={robots[i].username }/> 
 	})
 	console.log(robots);
 

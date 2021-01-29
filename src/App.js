@@ -31,7 +31,7 @@ const [name, setName] = useState('');
 const [email, setEmail] = useState('');
 const [website, setWebsite] = useState('');
 const [id1, setId1] = useState(0);
-const [newCard, setNewCard] = useState({id: 0, newName: 'Place', newEmail: 'Holder@gmail.com', newWebsite: 'PH.com'})
+const [newCard, setNewCard] = useState({id: 0, newName: 'Place', newEmail: 'Holder@gmail.com', newWebsite: 'PH.com', username: 'Hodor'})
 const [user, setUser] = useState({username: '', usermail: '', password: ''})
 const [logedin, setLogedin] = useState(false);
 const [userStore, setUserStore] = useState([]);
@@ -203,9 +203,9 @@ if (route === 'create')
 				<h1 className='f1 b'>RoboFriends</h1>
 				{ logedin === true ? 
 				(<div>
-				<CreateCard setNewCard={setNewCard} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
+				<CreateCard setNewCard={setNewCard} user={user} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 				<CurrentRobot theme={theme} robots={robots} /> 
-				<LastCard theme={theme} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
+				<LastCard theme={theme} user={user} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
 				</div>)
                 : <h1 className='f3 b'>Log in to create robots</h1> 
                 }

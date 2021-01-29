@@ -1,10 +1,11 @@
 import React from 'react';
 
-const CreateCard = ({setLastCard, newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1, robots, setRobots, setNewRobots, newRobots, newName, id, newEmail, newWebsite, setNewCard}) => {
+const CreateCard = ({user, setLastCard, newCard, props, name, website, email, setName, setEmail, setWebsite, colorVar, id1, setId1, robots, setRobots, setNewRobots, newRobots, newName, id, newEmail, newWebsite, setNewCard}) => {
     const [nameError, setNameError] = React.useState("")
     const [emailError, setEmailError] = React.useState("")
     const [websiteError, setWebsiteError] = React.useState("")
-    
+    const tempname = user.username;
+    console.log(tempname, '++');
     const submitValue = (e) => {
         e.preventDefault()
         const isValidName = validateName();
@@ -15,7 +16,7 @@ const CreateCard = ({setLastCard, newCard, props, name, website, email, setName,
             //let id2 = id1 + 1;
             // setId1(id1 +1);
             id1 = Math.floor(Math.random() * (1000 - 0 + 1));
-            const currentNewCard = {id: id1, newName: name, newEmail: email, newWebsite: website}
+            const currentNewCard = {id: id1, newName: name, newEmail: email, newWebsite: website, username: tempname}
             setNewCard(currentNewCard)
             setRobots([...robots, currentNewCard]);
             console.log(robots);
