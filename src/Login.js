@@ -8,6 +8,7 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
     const [warning, setWarning] = React.useState("")
     const [mailTemp, setMailTemp] = React.useState("")
     const [pwTemp, setPwTemp] = React.useState("")
+    const tempname = user.username;
     const mailChange = (event) => {
         setMailTemp(event.target.value)    
     }
@@ -20,11 +21,12 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
         const isValidPassword = validatePassword();
         if (isValidEmail === true && isValidPassword === true)
         {
-            const currentUser = {usermail : mailTemp, password : pwTemp}  
+            const currentUser = {usermail : mailTemp, password : pwTemp, username: tempname}  
             console.log(currentUser, '23');
             setUsercheck(currentUser);
             userStore.find((arrayMember) => {if(arrayMember.usermail.includes(mailTemp) && arrayMember.password.includes(pwTemp)){
                 setLogedin(true);
+                setUser(currentUser);
                 //setLogedUser(username);
                 setRoute('home');
                 setMailError("");
@@ -32,6 +34,7 @@ const Login = ({user, setUser, porps, username, usermail, password, setRoute, se
                 setMailTemp('');
                 setPwTemp(''); 
                 console.log(logedin);
+                
             }})
         }
         else setWarning('Invalid e-mail or password')

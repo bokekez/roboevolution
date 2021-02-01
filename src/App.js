@@ -141,6 +141,10 @@ const filterRobotsName = robots.filter(robot => {
 			{
 				return robot.newWebsite;
 			}	
+	else if (robot.username.toLowerCase().includes(searchfield.toLowerCase()))
+			{
+				return robot.username;
+			}	
 	else{
 				return '';
 		}
@@ -168,7 +172,7 @@ if (route === 'home')
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
 			</div>		
-        	<User setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
+        	<User setUser={setUser} setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
 			<Toggle className='tc' theme={theme} toggleTheme={toggleTheme} />
 	 		<h1 className='f1 b'>RoboFriends</h1>
 			<input className={` dim ${colorVar} ${colorVarText}`} style={{marginBottom: '1rem', fontSize: "2rem", justifyContent: 'center', cursor: 'pointer', borderRadius: '12px'}} onClick={routeChangeSearch} type="submit" value="Search robots"/>
@@ -198,14 +202,14 @@ if (route === 'create')
 				<input className={` dim ${colorVar} ${colorVarText}`} style={{outline: 'none', display: 'inline-block', textAlign: 'center', width: '7rem', alignSelf: 'flex-end',  cursor: 'pointer', top: '1rem', borderRadius: '12px', background: `${colorVar}`}} 
 				onClick={routeRegister} type="submit" value="Register"/>
 				</div>
-				<User setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
+				<User setUser={setUser} setLogedUser={setLogedUser} logedUser={logedUser} user={user} setLogedin={setLogedin} logedin={logedin}/>
 				<Toggle className=' tc' style={{alignSelf: 'center', position: 'absolute'}} theme={theme} toggleTheme={toggleTheme} />
 				<h1 className='f1 b'>RoboFriends</h1>
 				{ logedin === true ? 
 				(<div>
 				<CreateCard setNewCard={setNewCard} user={user} newRobots={newRobots} setNewRobots={setNewRobots} robots={robots} setRobots={setRobots} id1={id1} setId1={setId1} newCard={newCard} colorVar={colorVar} name={name} setName={setName} setEmail={setEmail} setWebsite={setWebsite} email={email} website={website}/>
 				<CurrentRobot theme={theme} robots={robots} /> 
-				<LastCard theme={theme} user={user} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
+				<LastCard logedin={logedin} theme={theme} user={user} newCard={newCard} robots={robots} setlastCardComponentMap={setlastCardComponentMap} lastCardComponent={lastCardComponentMap} setLogedin={setLogedin}/> 
 				</div>)
                 : <h1 className='f3 b'>Log in to create robots</h1> 
                 }

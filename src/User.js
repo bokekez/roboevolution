@@ -1,10 +1,11 @@
 import React from 'react';
 
-const User = ({setLogedUser, logedUser, user, setLogedin, logedin}) => {
+const User = ({setLogedUser, logedUser, user, setLogedin, logedin, setUser}) => {
     console.log(user.username);
     debugger;
     const logout = () => {
         setLogedin(false);
+        setUser({username: '', usermail: '', password: ''});
         console.log(logedin)
     }
     if (user.username !== "" && logedin === true){
